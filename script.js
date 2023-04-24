@@ -1,17 +1,26 @@
 const addBookBtn = document.getElementById('add-book-btn'),
     modal = document.getElementById('modal'),
     subtmitBooks = document.getElementById('add-book-submit'),
-    modalForm = document.getElementById('modal--form');
+    modalForm = document.getElementById('modal--form'),
+    errorMessage = document.getElementById('error-message'),
+    title = document.getElementById('title'),
+    author = document.getElementById('author'),
+    pages = document.getElementById('pages');
 
 addBookBtn.addEventListener('click', () => {
     modal.showModal();
 });
 
-subtmitBooks.addEventListener('click', (e) => {
+modalForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    addBookToLibrary();
-    modalForm.reset();
-    modal.close();
+    if (title.value === '' || author.value === '' || pages.value === '') {
+        errorMessage.textContent = 'Please fill in all fields';
+    } else {
+        addBookToLibrary();
+        modalForm.reset();
+        modal.close();
+        errorMessage.textContent = '';
+    }
 });
 
 let myLibrary = [];
