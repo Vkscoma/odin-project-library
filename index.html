@@ -23,16 +23,29 @@
         </div>
 
         <dialog class="modal" id="modal">
-            <form class="modal--form">
+            <form class="modal--form" id="modal--form">
                 <h2 class="modal--form--h2">Add Book</h2>
-                <input type="text" id="book-name" name="book-name" placeholder="Book Name">
-                <input type="text" id="author-name" name="author-name" placeholder="Author Name">
-                <input type="number" id="page-number" name="page-number" placeholder="Page Number">
-                <button class="modal--form--btn">Submit</button>
+                <input type="text" id="title" name="book-name" placeholder="Book Name">
+                <input type="text" id="author" name="author-name" placeholder="Author Name">
+                <input type="number" id="pages" name="page-number" placeholder="Page Number">
+                <button class="modal--form--btn" id="add-book-submit">Submit</button>
             </form>
         </dialog>
+
+        <div class="card" id="books">
+            <div class="card--container" id="book-card">
+                <h4><b>Book Title</b></h4>
+                <p>Author</p>
+                <p>Pages</p>
+                <button class="card--container--btn delete" id="delete-btn">Remove</button>
+            </div>
+        </div>
     </main>
     <script src="script.js"></script>
+    <script type="text/javascript" src="node_modules/dompurify/dist/purify.js"></script>
+    <script type="text/javascript">
+        let clean = DOMPurify.sanitize('document.querySelector(".card--container").innerHTML")');
+    </script>
 </body>
 
 </html>
