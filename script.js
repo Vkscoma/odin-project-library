@@ -40,16 +40,23 @@ function addBookToLibrary() {
     const book = new Book(title, author, pages);
     myLibrary.push(book);
     // Create a new book element and add it to the DOM
-    const bookElement = document.createElement('div');
-    bookElement.classList.add('card--container');
-    bookElement.innerHTML = `
-    <h3>${book.title}</h3>
-    <p>${book.author}</p>
-    <p>${book.pages}</p>
-    <button class="card--container--btn delete">Remove</button>
-    `;
-    document.getElementById('books').appendChild(bookElement);
-    console.log(myLibrary);
+    const bookDiv = document.createElement('div');
+    const bookTitle = document.createElement('h3');
+    const bookAuthor = document.createElement('p');
+    const bookPages = document.createElement('p');
+    const bookBtn = document.createElement('button');
+    bookDiv.classList.add('card--container');
+    bookTitle.textContent = book.title;
+    bookAuthor.textContent = book.author;
+    bookPages.textContent = book.pages;
+    bookBtn.classList.add('card--container--btn');
+    bookBtn.classList.add('delete');
+    bookBtn.textContent = 'Remove';
+    bookDiv.appendChild(bookTitle);
+    bookDiv.appendChild(bookAuthor);
+    bookDiv.appendChild(bookPages);
+    bookDiv.appendChild(bookBtn);
+    document.getElementById('books').appendChild(bookDiv);
 }
 
 document.addEventListener('click', (e) => {
