@@ -177,7 +177,7 @@ button:focus {
 
     .card {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0;
+        gap: 1em 0;
     }
 
     .card--container {
