@@ -1,8 +1,7 @@
 const addBookBtn = document.getElementById('add-book-btn'),
     modal = document.getElementById('modal'),
     subtmitBooks = document.getElementById('add-book-submit'),
-    modalForm = document.getElementById('modal--form'),
-    bookCard = document.querySelector('.card--container');
+    modalForm = document.getElementById('modal--form');
 
 addBookBtn.addEventListener('click', () => {
     modal.showModal();
@@ -44,8 +43,8 @@ function addBookToLibrary() {
     console.log(myLibrary);
 }
 
-bookCard.addEventListener('click', (e) => {
+document.addEventListener('click', (e) => {
     if (e.target && e.target.matches('button.delete')) {
-        console.log('clicked');
+        e.target.parentElement.remove();
     }
 });
