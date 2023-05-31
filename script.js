@@ -25,19 +25,27 @@ modalForm.addEventListener('submit', (e) => {
 
 let myLibrary = [];
 
-function Book(title, author, pages) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
+// function Book(title, author, pages) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+// }
+
+// converting to a class
+
+class Book {
+    constructor(title, author, pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+
+    }
 }
 
 function addBookToLibrary() {
-    const title = document.getElementById('title').value,
-        author = document.getElementById('author').value,
-        pages = document.getElementById('pages').value;
-
     // constructor function
-    const book = new Book(title, author, pages);
+    let book = new Book(title.value, author.value, pages.value);
+
     myLibrary.push(book);
     // Create a new book element and add it to the DOM
     const bookDiv = document.createElement('div');
